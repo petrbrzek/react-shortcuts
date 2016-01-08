@@ -72,30 +72,30 @@ describe 'Shortcuts component: ', ->
       element = ReactTestUtils.renderIntoDocument React.createElement(Test)
 
     it 'should create a <shortcuts> DOM element', ->
-      expect(ReactDOM.findDOMNode(element).querySelector('shortcuts')).toExist()
+      expect(React.findDOMNode(element).querySelector('shortcuts')).toExist()
 
     it 'should add a tabindex attribute to the <shortcuts> element', ->
-      el = ReactDOM.findDOMNode(element).querySelector('shortcuts')
+      el = React.findDOMNode(element).querySelector('shortcuts')
       expect(el.getAttribute('tabindex')).toExist()
       expect(el.getAttribute('tabindex')).toBe('-1')
 
     it 'should add a className to the <shortcuts> element', ->
-      el = ReactDOM.findDOMNode(element).querySelector('shortcuts')
+      el = React.findDOMNode(element).querySelector('shortcuts')
       expect(el.className).toBe('testing-class')
 
     it 'should use custom HTML element', ->
       props.element = React.DOM.section
       element = ReactTestUtils.renderIntoDocument React.createElement(Test)
-      expect(ReactDOM.findDOMNode(element).querySelector('section.testing-class')).toExist()
+      expect(React.findDOMNode(element).querySelector('section.testing-class')).toExist()
 
     it 'should use a custom tabindex attribute value', ->
       props.tabIndex = 666
       element = ReactTestUtils.renderIntoDocument React.createElement(Test)
-      el = ReactDOM.findDOMNode(element).querySelector('.testing-class')
+      el = React.findDOMNode(element).querySelector('.testing-class')
       expect(el.getAttribute('tabindex')).toBe('666')
 
     it 'should render its children as the children of the <shortcuts> element', ->
-      el = ReactDOM.findDOMNode(element).querySelector('.child')
+      el = React.findDOMNode(element).querySelector('.child')
       expect(el).toExist()
 
     it 'should fire shortcuts handler', ->
@@ -106,6 +106,6 @@ describe 'Shortcuts component: ', ->
     it 'should add tabIndex attr on targetNode', ->
       props.targetNode = document.querySelector('body')
       props.tabIndex = 123
-      element = ReactDOM.render(React.createElement(Test), document.body)
+      element = React.render(React.createElement(Test), document.body)
 
       expect(document.body.getAttribute('tabindex')).toBe('123')

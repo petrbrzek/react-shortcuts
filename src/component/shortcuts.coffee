@@ -1,5 +1,4 @@
 React = require 'react'
-ReactDOM = require 'react-dom'
 _ = require 'lodash'
 invariant = require 'invariant'
 createMousetrap = require 'mousetrap'
@@ -59,7 +58,7 @@ module.exports = React.createClass
     if @props.targetNode
       element = @props.targetNode
     else
-      element = ReactDOM.findDOMNode(this)
+      element = React.findDOMNode(this)
 
     invariant(element, 'TargetNode was not found.')
     return element
